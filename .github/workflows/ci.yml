@@ -87,7 +87,7 @@ jobs:
 
       # 10. Run Selenium + API automation tests
       - name: Run automation tests
-        working-directory: selenium_tests
+        working-directory: selenium-tests
         run: mvn test
 
 
@@ -98,6 +98,6 @@ jobs:
         with:
           name: automation-test-reports
           path: |
-            selenium_tests/target/surefire-reports/
-            selenium_tests/target/cucumber-reports/
-            selenium_tests/target/*.html
+            selenium-tests/target/surefire-reports/
+            selenium-tests/target/cucumber-reports/
+            selenium-tests/target/*.html

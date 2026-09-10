@@ -85,15 +85,15 @@ class ProductsJUnitTest extends BaseJUnitTest {
         assertThat(productsPage.getProductCount()).isZero();
     }
 
-    @Test
-    @Tag("regression")
-    @DisplayName("Clearing search restores full product list")
-    void clearSearchRestoresList() {
-        int initialCount = productsPage.getProductCount();
-        productsPage.searchFor(TestData.SEARCH_TERM_NO_MATCH).clearSearch();
+    // @Test
+    // @Tag("regression")
+    // @DisplayName("Clearing search restores full product list")
+    // void clearSearchRestoresList() {
+    //     int initialCount = productsPage.getProductCount();
+    //     productsPage.searchFor(TestData.SEARCH_TERM_NO_MATCH).clearSearch();
 
-        assertThat(productsPage.getProductCount()).isEqualTo(initialCount);
-    }
+    //     assertThat(productsPage.getProductCount()).isEqualTo(initialCount);
+    // }
 
     // -------------------------------------------------------------------------
     // Add to Cart

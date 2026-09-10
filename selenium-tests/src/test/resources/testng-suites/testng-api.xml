@@ -1,0 +1,51 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  testng-api.xml — runs only the REST Assured API test suite
+
+  Usage:
+    mvn test -Papi
+-->
+<suite name="ECommerce API Test Suite" verbose="1" parallel="none">
+
+    <!--
+      No ExtentReportListener here — that listener references BaseTest / WebDriver
+      internally, which can cause a browser window to open even though these are
+      pure REST Assured tests.  Allure (configured via the allure-testng dependency)
+      handles reporting for the API suite automatically.
+    -->
+
+    <test name="Auth API Tests">
+        <groups>
+            <run>
+                <include name="api"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ecommerce.automation.api.tests.AuthApiTest"/>
+        </classes>
+    </test>
+
+    <test name="Products API Tests">
+        <groups>
+            <run>
+                <include name="api"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ecommerce.automation.api.tests.ProductsApiTest"/>
+        </classes>
+    </test>
+
+    <test name="Cart API Tests">
+        <groups>
+            <run>
+                <include name="api"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ecommerce.automation.api.tests.CartApiTest"/>
+        </classes>
+    </test>
+
+</suite>

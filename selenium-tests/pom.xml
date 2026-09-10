@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ecommerce.automation</groupId>
+    <artifactId>ecommerce-selenium-tests</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>ECommerce Selenium Automation Tests</name>
+    <description>Selenium WebDriver tests using TestNG, JUnit, BDD and Cucumber</description>
+
+    <properties>
+        <!-- Java -->
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Dependency versions -->
+        <selenium.version>4.18.1</selenium.version>
+        <webdrivermanager.version>5.7.0</webdrivermanager.version>
+        <testng.version>7.9.0</testng.version>
+        <junit.version>5.10.2</junit.version>
+        <junit.platform.version>1.10.2</junit.platform.version>
+        <cucumber.version>7.16.1</cucumber.version>
+
+        <extentreports.version>5.1.1</extentreports.version>
+
+        <!-- Updated Allure -->
+        <allure.version>2.29.0</allure.version>
+
+        <slf4j.version>2.0.12</slf4j.version>
+        <lombok.version>1.18.32</lombok.version>
+        <assertj.version>3.25.3</assertj.version>
+        <jackson.version>2.17.0</jackson.version>
+        <commons.io.version>2.15.1</commons.io.version>
+        <rest.assured.version>5.4.0</rest.assured.version>
+        <json.schema.validator.version>5.4.0</json.schema.validator.version>
+    </properties>
+
+
+    <!-- ========================================================= -->
+    <!-- ALLURE BOM -->
+    <!-- Keeps all Allure modules on the same version -->
+    <!-- ========================================================= -->
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+
+        <!-- ========================== SELENIUM ========================== -->
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+
+        <!-- WebDriverManager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+
+        <!-- ========================== TESTNG ========================== -->
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+
+        <!-- ========================== JUNIT 5 ========================== -->
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
+        </dependency>
+
+
+        <!-- ========================== CUCUMBER ========================== -->
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- Cucumber + TestNG -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- Cucumber + JUnit 5 -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+
+        <!-- ========================== REPORTING ========================== -->
+
+        <!-- ExtentReports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
+
+
+        <!-- Allure TestNG -->
+        <!-- Version comes from Allure BOM -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+        </dependency>
+
+
+        <!-- Allure Cucumber 7 -->
+        <!-- Version comes from Allure BOM -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+        </dependency>
+
+
+        <!-- ========================== UTILITIES ========================== -->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+
+        <!-- ========================== REST ASSURED ========================== -->
+
+        <!-- Core REST Assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest.assured.version}</version>
+        </dependency>
+
+        <!-- JSON Schema validation support -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${json.schema.validator.version}</version>
+        </dependency>
+
+        <!-- Allure REST Assured integration -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+    <!-- ========================== BUILD ========================== -->
+
+    <build>
+
+        <plugins>
+
+            <!-- Maven Surefire -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+
+                <configuration>
+
+                    <suiteXmlFiles>
+                        <suiteXmlFile>
+                            src/test/resources/testng-suites/testng-api.xml
+                        </suiteXmlFile>
+                    </suiteXmlFiles>
+
+                    <systemPropertyVariables>
+                        <allure.results.directory>
+                            ${project.build.directory}/allure-results
+                        </allure.results.directory>
+                    </systemPropertyVariables>
+
+                </configuration>
+            </plugin>
+
+
+            <!-- Maven Failsafe -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+
+
+            <!-- Allure Maven Plugin -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>
+                        ${project.build.directory}/allure-results
+                    </resultsDirectory>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+
+    </build>
+
+
+    <!-- ========================== PROFILES ========================== -->
+
+    <profiles>
+
+        <!-- mvn test -Ptestng -->
+
+        <profile>
+            <id>testng</id>
+
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>
+                                    src/test/resources/testng-suites/testng-all.xml
+                                </suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+
+
+        <!-- mvn test -Pjunit -->
+
+        <profile>
+            <id>junit</id>
+
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+
+                        <configuration>
+
+                            <suiteXmlFiles combine.self="override"/>
+
+                            <includes>
+                                <include>**/*JUnitTest.java</include>
+                            </includes>
+
+                        </configuration>
+
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+
+
+        <!-- mvn test -Pcucumber -->
+
+        <profile>
+            <id>cucumber</id>
+
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+
+                        <configuration>
+
+                            <suiteXmlFiles>
+                                <suiteXmlFile>
+                                    src/test/resources/testng-suites/testng-cucumber.xml
+                                </suiteXmlFile>
+                            </suiteXmlFiles>
+
+                        </configuration>
+
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+
+
+        <!-- mvn test -Papi -->
+
+        <profile>
+            <id>api</id>
+
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+
+                        <dependencies>
+                            <!-- Force the TestNG provider so Surefire does not
+                                 auto-detect JUnit Platform and ignore suiteXmlFiles. -->
+                            <dependency>
+                                <groupId>org.apache.maven.surefire</groupId>
+                                <artifactId>surefire-testng</artifactId>
+                                <version>3.2.5</version>
+                            </dependency>
+                        </dependencies>
+
+                        <configuration>
+
+                            <!-- Hand control entirely to TestNG via the api XML suite.
+                                 combine.self="override" prevents the default <suiteXmlFiles>
+                                 block from merging in. -->
+                            <suiteXmlFiles combine.self="override">
+                                <suiteXmlFile>
+                                    src/test/resources/testng-suites/testng-api.xml
+                                </suiteXmlFile>
+                            </suiteXmlFiles>
+
+                        </configuration>
+
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+
+    </profiles>
+
+</project>
+

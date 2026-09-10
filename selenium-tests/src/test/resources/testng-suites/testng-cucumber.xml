@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  testng-cucumber.xml — runs Cucumber BDD scenarios via TestNG
+
+  Usage:
+    mvn test -P cucumber
+
+  Override tags at runtime:
+    mvn test -P cucumber -Dcucumber.filter.tags="@smoke"
+-->
+<suite name="ECommerce Cucumber BDD Suite" verbose="1" parallel="none">
+
+    <test name="BDD Cucumber Tests">
+        <classes>
+            <class name="com.ecommerce.automation.cucumber.runner.CucumberTestNGRunner"/>
+        </classes>
+    </test>
+
+</suite>

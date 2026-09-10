@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  testng-smoke.xml — runs only @smoke group tests
+
+  Usage:
+    mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-smoke.xml
+-->
+<suite name="ECommerce Smoke Suite" verbose="1" parallel="none">
+
+    <listeners>
+        <listener class-name="com.ecommerce.automation.reports.ExtentReportListener"/>
+    </listeners>
+
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ecommerce.automation.testng.LoginTest"/>
+            <class name="com.ecommerce.automation.testng.ProductsTest"/>
+            <class name="com.ecommerce.automation.testng.CartTest"/>
+        </classes>
+    </test>
+
+</suite>

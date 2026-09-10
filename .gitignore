@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+*.sqlite
+*.db
+
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+*.local
+
+# Testing
+.pytest_cache/
+selenium-tests/.pytest_cache/
+htmlreport.html
+screenshots/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

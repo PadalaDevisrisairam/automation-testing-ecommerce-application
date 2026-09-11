@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, engine
 from app.routers import auth, products, cart
 from app.seed_data import seed_database
+import os
+
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)
@@ -20,7 +23,7 @@ app = FastAPI(
 # Allow the React dev server to communicate with this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
